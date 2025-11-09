@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gareth Harrison - Automotive & Robotics Engineering</title>
+    <title>Gareth Harrison - Engineering, Robotics, AI & IoT Portfolio</title>
+    <meta name="description" content="Portfolio of Gareth Aurelius Harrison — engineering student building autonomous drones, IoT systems, ML models, and real-world automation solutions.">
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Load Inter font -->
@@ -34,6 +35,16 @@
         }
         .icon-link {
             @apply text-slate-400 hover:text-blue-400 transition-colors;
+        }
+        /* Subtle animation for section/content reveal */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -88,18 +99,18 @@
 
     <main>
         <!-- Hero Section -->
-        <section id="home" class="pt-24 pb-32 md:pt-32 md:pb-40">
+        <section id="home" class="pt-24 pb-20 md:pt-32 md:pb-28">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">
                     Gareth Aurelius Harrison
                 </h1>
-                <p class="mt-4 text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto">
-                    Automotive and Robotics Engineering Student @ BINUS ASO School of Engineering
+                <p class="mt-4 text-xl md:text-2xl text-slate-200 max-w-3xl mx-auto">
+                    Engineering student building autonomous drones, IoT systems, and AI-powered solutions.
                 </p>
-                <p class="mt-8 max-w-2xl mx-auto text-lg text-slate-400">
-                    Specializing in robotics, automation, and AI. Passionate about applying technical expertise to real-world innovations.
+                <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-400">
+                    Combining robotics, machine learning, and hardware design to solve real-world problems in automation, sustainability, and intelligent systems.
                 </p>
-                <div class="mt-10 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <div class="mt-8 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
                     <a href="#projects" class="inline-block bg-blue-600 text-white text-lg font-semibold px-8 py-3 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300">
                         View Projects
                     </a>
@@ -107,40 +118,50 @@
                         Get in Touch
                     </a>
                 </div>
+                <!-- Quick credibility + stack strip -->
+                <div class="mt-6 flex flex-wrap justify-center gap-3 text-sm text-slate-400">
+                    <span class="px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700">Experience with AeroBase, Total Panel Beton, BASE C.O.R.E, ESports Club</span>
+                    <span class="px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700">ROS • Python • C/C++ • IoT • Computer Vision • Embedded Systems</span>
+                </div>
             </div>
         </section>
 
         <!-- About Me Section -->
         <section id="about" class="py-24 bg-slate-800/50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="lg:grid lg:grid-cols-3 lg:gap-8">
-                    <div class="lg:col-span-1">
-                        <h2 class="text-3xl font-bold text-white">About Me</h2>
-                    </div>
-                    <div class="mt-6 lg:mt-0 lg:col-span-2">
-                        <p class="text-lg text-slate-300">
-                            Engineering student specializing in robotics and automation, with experience in organizational leadership and public speaking. Skilled in problem-solving, teamwork, and cross-cultural communication. Seeking opportunities to apply technical expertise to real-world innovations.
+                <div class="lg:grid lg:grid-cols-3 lg:gap-8 items-start">
+                    <div class="lg:col-span-1 mb-8 lg:mb-0">
+                        <h2 class="text-3xl font-bold text-white mb-4">About Me</h2>
+                        <p class="text-base text-slate-400">
+                            I am an engineering student with a broad technical foundation across robotics, AI, embedded systems, and IoT.
+                            I enjoy building systems end-to-end — from hardware and control to perception and data — and translating complex ideas into clear decisions for teams and stakeholders.
                         </p>
-                        <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    </div>
+                    <div class="lg:col-span-2">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Quick Facts -->
                             <div class="bg-slate-800 p-6 rounded-lg">
-                                <h3 class="text-xl font-semibold text-white">Education</h3>
-                                <div class="mt-4">
-                                    <p class="font-medium text-slate-100">Bachelor of Engineering, Automotive and Robotics</p>
-                                    <p class="text-slate-400">BINUS ASO School of Engineering (Expected 2027)</p>
-                                    <p class="text-slate-400 text-sm">GPA: 3.86/4.00</p>
-                                </div>
-                                <div class="mt-4">
-                                    <p class="font-medium text-slate-100">Natural Sciences Track</p>
-                                    <p class="text-slate-400">SMAK 1 PENABUR Jakarta (2023)</p>
-                                </div>
+                                <h3 class="text-xl font-semibold text-white mb-3">At a Glance</h3>
+                                <ul class="space-y-2 text-slate-300 text-sm">
+                                    <li><span class="font-semibold text-slate-100">Degree:</span> B.Eng. Automotive & Robotics, BINUS ASO (Expected 2027)</li>
+                                    <li><span class="font-semibold text-slate-100">GPA:</span> 3.86 / 4.00</li>
+                                    <li><span class="font-semibold text-slate-100">Focus Areas:</span> Autonomous drones, IoT systems, ML & computer vision, control systems</li>
+                                    <li><span class="font-semibold text-slate-100">Strengths:</span> System thinking, clear communication, leadership in technical teams</li>
+                                </ul>
                             </div>
+                            <!-- Education & Interests -->
                             <div class="bg-slate-800 p-6 rounded-lg">
-                                <h3 class="text-xl font-semibold text-white">Interests</h3>
-                                <ul class="mt-4 space-y-2 list-disc list-inside text-slate-300">
-                                    <li>Drone Technology & Autonomous Systems</li>
-                                    <li>Public Speaking & Debate</li>
-                                    <li>Entrepreneurship & Innovation</li>
-                                    <li>Esports Event Organizing</li>
+                                <h3 class="text-xl font-semibold text-white mb-3">Background</h3>
+                                <p class="font-medium text-slate-100 text-sm">BINUS ASO School of Engineering</p>
+                                <p class="text-slate-400 text-sm mb-3">Automotive and Robotics Engineering</p>
+                                <p class="font-medium text-slate-100 text-sm">SMAK 1 PENABUR Jakarta</p>
+                                <p class="text-slate-400 text-sm mb-3">Natural Sciences Track</p>
+                                <h4 class="text-sm font-semibold text-slate-200 mt-2 mb-1">Interests</h4>
+                                <ul class="space-y-1 text-slate-300 text-sm list-disc list-inside">
+                                    <li>Drone technology & autonomous systems</li>
+                                    <li>Applied AI & computer vision</li>
+                                    <li>Technical teaching, mentoring & public speaking</li>
+                                    <li>Event organizing & esports production</li>
                                 </ul>
                             </div>
                         </div>
@@ -152,147 +173,161 @@
         <!-- Projects Section -->
         <section id="projects" class="py-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="section-title">Portfolio Projects</h2>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="text-center text-slate-400 max-w-3xl mx-auto mb-10 text-sm">
+                    Selected work across autonomous systems, IoT, ML, and hardware — each built with a focus on real-world constraints, reliability, and clarity of results.
+                </p>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
                     <!-- Project 1: HAYABUSA, KRTI 2025 -->
                     <div class="card">
-                        <img class="h-48 w-full object-cover" src="https://placehold.co/600x400/334155/E2E8F0?text=HAYABUSA+Project" alt="HAYABUSA, KRTI 2025">
+                        <img class="h-48 w-full object-cover" src="assets/Portfolio/hayabusa.jpg" alt="HAYABUSA, KRTI 2025">
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">HAYABUSA, KRTI 2025</h3>
-                            <p class="text-slate-400 text-sm mb-4">Advanced autonomous drone with 3 LiDAR sensors and a dual-camera setup for navigation and object detection.</p>
-                            <div class="mb-4">
+                            <h3 class="text-xl font-bold text-white mb-1">HAYABUSA — Autonomous Drone (KRTI 2025)</h3>
+                            <p class="text-slate-400 text-xs mb-2">Role: Software & Systems Engineer</p>
+                            <p class="text-slate-400 text-sm mb-3">
+                                Multi-sensor autonomous UAV platform using 3 LiDAR sensors and dual cameras for navigation and object detection in simulated mission environments.
+                            </p>
+                            <div class="mb-3">
                                 <span class="tag">ROS</span>
                                 <span class="tag">Gazebo</span>
-                                <span class="tag">Object Detection</span>
                                 <span class="tag">LiDAR</span>
+                                <span class="tag">Computer Vision</span>
+                                <span class="tag">C++/Python</span>
                             </div>
-                            <h4 class="font-semibold text-slate-200 mb-2">Key Responsibilities:</h4>
-                            <ul class="list-disc list-inside text-slate-400 text-sm space-y-1">
-                                <li>Developed and integrated drone simulation environments.</li>
-                                <li>Built and tested object detection models for perception.</li>
+                            <ul class="list-disc list-inside text-slate-400 text-xs space-y-1 mb-3">
+                                <li>Designed and integrated simulation environments for autonomous flight missions.</li>
+                                <li>Implemented and validated perception pipeline for obstacle detection and tracking.</li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- Project 2: KARASU, KRTI 2024 -->
                     <div class="card">
-                        <img class="h-48 w-full object-cover" src="https://placehold.co/600x400/334155/E2E8F0?text=KARASU+Project" alt="KARASU, KRTI 2024">
+                        <img class="h-48 w-full object-cover" src="assets/Portfolio/karasu.jpg" alt="KARASU, KRTI 2024">
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">KARASU (カラス), KRTI 2024</h3>
-                            <p class="text-slate-400 text-sm mb-4">First-generation UAV for aerial surveillance and image capture, marking AeroBASE's debut in KRTI 2024.</p>
-                            <div class="mb-4">
+                            <h3 class="text-xl font-bold text-white mb-1">KARASU — Surveillance UAV (KRTI 2024)</h3>
+                            <p class="text-slate-400 text-xs mb-2">Role: ROS Developer & Flight Testing</p>
+                            <p class="text-slate-400 text-sm mb-3">
+                                First-generation UAV for aerial surveillance and mapping, marking AeroBASE's debut in KRTI.
+                            </p>
+                            <div class="mb-3">
                                 <span class="tag">ROS</span>
                                 <span class="tag">UAV</span>
                                 <span class="tag">Autonomous Navigation</span>
                             </div>
-                            <h4 class="font-semibold text-slate-200 mb-2">Key Responsibilities:</h4>
-                            <ul class="list-disc list-inside text-slate-400 text-sm space-y-1">
-                                <li>Debugged and optimized ROS packages for navigation.</li>
-                                <li>Conducted flight trials to validate obstacle avoidance algorithms.</li>
+                            <ul class="list-disc list-inside text-slate-400 text-xs space-y-1 mb-3">
+                                <li>Debugged and tuned ROS nodes for navigation and sensor fusion.</li>
+                                <li>Coordinated flight tests to validate stability and obstacle avoidance.</li>
                             </ul>
                         </div>
                     </div>
                     
                     <!-- Project 3: PLANTESA -->
                     <div class="card">
-                        <img class="h-48 w-full object-cover" src="https://placehold.co/600x400/334155/E2E8F0?text=PLANTESA+Project" alt="PLANTESA Project">
+                        <img class="h-48 w-full object-cover" src="assets/Portfolio/plantessa.jpg" alt="PLANTESA Project">
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">PLANTESA: IoT & ML Plant Incubator</h3>
-                            <p class="text-slate-400 text-sm mb-4">Smart plant incubation system integrating IoT (ESP32, RPi) and a CNN for automated monitoring and disease detection.</p>
-                            <div class="mb-4">
+                            <h3 class="text-xl font-bold text-white mb-1">PLANTESA — IoT & ML Plant Incubator</h3>
+                            <p class="text-slate-400 text-xs mb-2">Role: End-to-end System Developer</p>
+                            <p class="text-slate-400 text-sm mb-3">
+                                Smart plant incubation system combining ESP32 sensors, Raspberry Pi, and CNN-based tomato leaf disease detection with cloud logging.
+                            </p>
+                            <div class="mb-3">
                                 <span class="tag">IoT</span>
-                                <span class="tag">Machine Learning</span>
+                                <span class="tag">ESP32</span>
+                                <span class="tag">Raspberry Pi</span>
                                 <span class="tag">CNN</span>
                                 <span class="tag">Firebase</span>
-                                <span class="tag">ESP32</span>
                             </div>
-                            <h4 class="font-semibold text-slate-200 mb-2">Key Responsibilities:</h4>
-                            <ul class="list-disc list-inside text-slate-400 text-sm space-y-1">
-                                <li>Developed the full IoT system with multiple sensors.</li>
-                                <li>Implemented cloud data processing via Firebase.</li>
-                                <li>Applied a CNN for tomato leaf disease detection.</li>
+                            <ul class="list-disc list-inside text-slate-400 text-xs space-y-1 mb-3">
+                                <li>Designed sensor network for temperature, humidity, and environment monitoring.</li>
+                                <li>Integrated cloud backend and ML model for real-time plant health insights.</li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- Project 4: Depression Detection -->
                     <div class="card">
-                        <img class="h-48 w-full object-cover" src="https://placehold.co/600x400/334155/E2E8F0?text=Voice+Analysis+ML" alt="Depression Detection from Voice">
+                        <img class="h-48 w-full object-cover" src="assets/Portfolio/depression-voice.jpg" alt="Depression Detection from Voice">
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Depression Detection via Voice Analysis</h3>
-                            <p class="text-slate-400 text-sm mb-4">A non-invasive diagnostic system using MFCC features and an SVM model to detect depression from voice, achieving up to 99.46% accuracy.</p>
-                            <div class="mb-4">
+                            <h3 class="text-xl font-bold text-white mb-1">Depression Detection via Voice</h3>
+                            <p class="text-slate-400 text-xs mb-2">Role: ML Researcher</p>
+                            <p class="text-slate-400 text-sm mb-3">
+                                Non-invasive mental health screening using MFCC features and an SVM classifier, achieving up to 99.46% accuracy on a controlled dataset.
+                            </p>
+                            <div class="mb-3">
                                 <span class="tag">Machine Learning</span>
                                 <span class="tag">SVM</span>
                                 <span class="tag">MFCC</span>
-                                <span class="tag">Data Analysis</span>
+                                <span class="tag">Python</span>
                             </div>
-                            <h4 class="font-semibold text-slate-200 mb-2">Key Responsibilities:</h4>
-                            <ul class="list-disc list-inside text-slate-400 text-sm space-y-1">
-                                <li>Collected and preprocessed 50+ voice samples.</li>
-                                <li>Extracted MFCC features to capture speech patterns.</li>
-                                <li>Developed and trained the SVM model.</li>
+                            <ul class="list-disc list-inside text-slate-400 text-xs space-y-1 mb-3">
+                                <li>Preprocessed and extracted features from 50+ recorded samples.</li>
+                                <li>Trained and evaluated SVM models with cross-validation.</li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- Project 5: Plastic Shedder & Mixer -->
+                    <!-- Project 5: Plastic Shredder & Mixer -->
                     <div class="card">
-                        <img class="h-48 w-full object-cover" src="https://placehold.co/600x400/334155/E2E8F0?text=R&D+Intern+Project" alt="Plastic Shedder and Vibration Mixer">
+                        <img class="h-48 w-full object-cover" src="assets/Portfolio/plastic-shredder.jpg" alt="Plastic Shredder and Vibration Mixer">
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Plastic Shedder & Vibration Mixer</h3>
-                            <p class="text-slate-400 text-sm mb-4">Developed equipment to support material efficiency by processing plastic waste for reuse in cement-based composites.</p>
-                            <div class="mb-4">
+                            <h3 class="text-xl font-bold text-white mb-1">Plastic Shredder & Vibration Mixer</h3>
+                            <p class="text-slate-400 text-xs mb-2">Role: R&D Intern</p>
+                            <p class="text-slate-400 text-sm mb-3">
+                                Equipment to process plastic waste into cement-based composite materials, improving material consistency and production efficiency.
+                            </p>
+                            <div class="mb-3">
                                 <span class="tag">R&D</span>
                                 <span class="tag">Mechanical Design</span>
                                 <span class="tag">Sustainability</span>
                             </div>
-                            <h4 class="font-semibold text-slate-200 mb-2">Key Responsibilities:</h4>
-                            <ul class="list-disc list-inside text-slate-400 text-sm space-y-1">
-                                <li>Designed and fabricated shredder blades.</li>
-                                <li>Repaired and optimized a vibration table.</li>
-                                <li>Formulated and tested cement-plastic mixtures.</li>
+                            <ul class="list-disc list-inside text-slate-400 text-xs space-y-1 mb-3">
+                                <li>Designed shredder blade geometry and validated operation.</li>
+                                <li>Optimized vibration table settings to improve mix uniformity.</li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- Project 6: SMART Parking System -->
                     <div class="card">
-                        <img class="h-48 w-full object-cover" src="https://placehold.co/600x400/334155/E2E8F0?text=SMART+Parking" alt="SMART Parking System">
+                        <img class="h-48 w-full object-cover" src="assets/Portfolio/smart-parking.jpg" alt="SMART Parking System">
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">SMART Parking System</h3>
-                            <p class="text-slate-400 text-sm mb-4">Automated parking solution using PIR sensors, IR sensors, servo motors, and LEDs to monitor and regulate parking availability.</p>
-                            <div class="mb-4">
+                            <h3 class="text-xl font-bold text-white mb-1">SMART Parking System</h3>
+                            <p class="text-slate-400 text-xs mb-2">Role: Circuit & System Designer</p>
+                            <p class="text-slate-400 text-sm mb-3">
+                                Automated parking system using PIR/IR sensors, servos, and LEDs to track and display slot availability.
+                            </p>
+                            <div class="mb-3">
                                 <span class="tag">IoT</span>
                                 <span class="tag">Circuit Design</span>
                                 <span class="tag">Sensors</span>
+                                <span class="tag">Arduino</span>
                             </div>
-                            <h4 class="font-semibold text-slate-200 mb-2">Key Responsibilities:</h4>
-                            <ul class="list-disc list-inside text-slate-400 text-sm space-y-1">
-                                <li>Designed electronic circuits for the system.</li>
-                                <li>Tested circuit performance and reliability.</li>
-                                <li>Optimized and implemented the final circuit design.</li>
+                            <ul class="list-disc list-inside text-slate-400 text-xs space-y-1 mb-3">
+                                <li>Designed and implemented the full sensor and actuator circuit.</li>
+                                <li>Validated reliability under repeated operation cycles.</li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- Project 7: Fish Feeding System -->
+                    <!-- Project 7: Automatic Fish Feeding System -->
                     <div class="card">
-                        <img class="h-48 w-full object-cover" src="https://placehold.co/600x400/334155/E2E8F0?text=Fish+Feeder" alt="Fish Feeding System">
+                        <img class="h-48 w-full object-cover" src="assets/Portfolio/fish-feeder.jpg" alt="Automatic Fish Feeding System">
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Automatic Fish Feeding System</h3>
-                            <p class="text-slate-400 text-sm mb-4">Arduino-based system with ultrasonic sensors, servos, and an RTC module for precise, automated feeding schedules.</p>
-                            <div class="mb-4">
+                            <h3 class="text-xl font-bold text-white mb-1">Automatic Fish Feeding System</h3>
+                            <p class="text-slate-400 text-xs mb-2">Role: Embedded Systems Developer</p>
+                            <p class="text-slate-400 text-sm mb-3">
+                                Arduino-based feeder with ultrasonic sensing and RTC-based scheduling for consistent, low-maintenance feeding.
+                            </p>
+                            <div class="mb-3">
                                 <span class="tag">Arduino</span>
                                 <span class="tag">Microcontrollers</span>
                                 <span class="tag">Automation</span>
                             </div>
-                            <h4 class="font-semibold text-slate-200 mb-2">Key Responsibilities:</h4>
-                            <ul class="list-disc list-inside text-slate-400 text-sm space-y-1">
-                                <li>Designed circuits integrating sensors, servos, and LCD.</li>
-                                <li>Programmed Arduino for automated scheduling.</li>
-                                <li>Assembled and tested the system for reliability.</li>
+                            <ul class="list-disc list-inside text-slate-400 text-xs space-y-1 mb-3">
+                                <li>Integrated sensors, servo motors, and LCD interface.</li>
+                                <li>Implemented scheduling logic to ensure accurate feeding intervals.</li>
                             </ul>
                         </div>
                     </div>
@@ -305,6 +340,9 @@
         <section id="experience" class="py-24 bg-slate-800/50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="section-title">Experience & Leadership</h2>
+                <p class="text-center text-slate-400 max-w-3xl mx-auto mb-10 text-sm">
+                    Roles that combine engineering execution, research, teaching, and event management — demonstrating ownership, communication, and impact.
+                </p>
                 <div class="max-w-3xl mx-auto">
                     <!-- Timeline -->
                     <div class="relative">
@@ -321,7 +359,10 @@
                                 <p class="text-sm text-slate-400">Sep 2025 - Jan 2026</p>
                                 <h3 class="text-xl font-bold text-white mt-1">Laboratory Assistant</h3>
                                 <p class="text-lg font-medium text-slate-300">BINUS ASO School of Engineering</p>
-                                <p class="mt-2 text-slate-400">Supported the 'Decision Making Under Uncertainty' course, guiding 20+ students using SuperDecisions for AHP models and preparing 10+ lab materials.</p>
+                                <ul class="mt-2 text-slate-400 text-sm list-disc list-inside space-y-1">
+                                    <li>Guided 20+ students on AHP modeling using SuperDecisions.</li>
+                                    <li>Developed 10+ structured lab modules to clarify complex decision-making concepts.</li>
+                                </ul>
                             </div>
                         </div>
                         
@@ -335,7 +376,10 @@
                                 <p class="text-sm text-slate-400">Sep 2023 - Oct 2025</p>
                                 <h3 class="text-xl font-bold text-white mt-1">Software Engineer</h3>
                                 <p class="text-lg font-medium text-slate-300">AeroBase</p>
-                                <p class="mt-2 text-slate-400">Developed drone simulation environments in Gazebo (ROS), built object detection models, and debugged ROS packages for UAV navigation and control.</p>
+                                <ul class="mt-2 text-slate-400 text-sm list-disc list-inside space-y-1">
+                                    <li>Developed ROS/Gazebo simulation environments for UAV autonomy testing.</li>
+                                    <li>Implemented and debugged navigation and perception modules for competition UAVs.</li>
+                                </ul>
                             </div>
                         </div>
 
@@ -349,7 +393,10 @@
                                 <p class="text-sm text-slate-400">Jun 2025 - Sep 2025</p>
                                 <h3 class="text-xl font-bold text-white mt-1">Research and Development Intern</h3>
                                 <p class="text-lg font-medium text-slate-300">Total Panel Beton</p>
-                                <p class="mt-2 text-slate-400">Collaborated with R&D team to design and test 2 process improvement initiatives, improving production accuracy by up to 12%.</p>
+                                <ul class="mt-2 text-slate-400 text-sm list-disc list-inside space-y-1">
+                                    <li>Designed and tested process improvement initiatives that increased production accuracy by up to 12%.</li>
+                                    <li>Collaborated with cross-functional teams to validate prototypes on-site.</li>
+                                </ul>
                             </div>
                         </div>
 
@@ -362,8 +409,11 @@
                             <div class="ml-16">
                                 <p class="text-sm text-slate-400">Jul 2024 - Jan 2026</p>
                                 <h3 class="text-xl font-bold text-white mt-1">Advisor & Secretary (AI Division)</h3>
-                                <p class="text-lg font-medium text-slate-300">BASE C.O.R.E</h>
-                                <p class="mt-2 text-slate-400">Mentored underclassmen on AI projects and managed documentation for 20+ lessons, organizing the curriculum for 30+ members.</p>
+                                <p class="text-lg font-medium text-slate-300">BASE C.O.R.E</p>
+                                <ul class="mt-2 text-slate-400 text-sm list-disc list-inside space-y-1">
+                                    <li>Mentored members on AI fundamentals and project design.</li>
+                                    <li>Structured and maintained documentation for 20+ learning sessions.</li>
+                                </ul>
                             </div>
                         </div>
                         
@@ -377,7 +427,10 @@
                                 <p class="text-sm text-slate-400">Sep 2023 - Oct 2025</p>
                                 <h3 class="text-xl font-bold text-white mt-1">Event Manager</h3>
                                 <p class="text-lg font-medium text-slate-300">ESPORTS Club (EO)</p>
-                                <p class="mt-2 text-slate-400">Organized and managed esports tournaments with 80+ teams, coordinating logistics, scheduling, and live streaming for hundreds of participants.</p>
+                                <ul class="mt-2 text-slate-400 text-sm list-disc list-inside space-y-1">
+                                    <li>Managed esports tournaments with 80+ teams and large online viewership.</li>
+                                    <li>Coordinated logistics, schedules, and broadcast with cross-functional crews.</li>
+                                </ul>
                             </div>
                         </div>
 
@@ -389,39 +442,46 @@
         <!-- Skills & Certifications Section -->
         <section id="skills" class="py-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="section-title">Technical Skills</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Programming -->
+                <h2 class="section-title">Skills & Tools</h2>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <!-- Core Technical -->
                     <div class="bg-slate-800 p-6 rounded-lg">
-                        <h3 class="text-xl font-semibold text-white mb-4">Programming</h3>
-                        <ul class="space-y-2">
-                            <li class="flex items-center"><span class="tag !bg-sky-600 !mb-0 mr-3">Python</span> <span class="text-slate-300">Intermediate</span></li>
-                            <li class="flex items-center"><span class="tag !bg-sky-600 !mb-0 mr-3">C/C++</span> <span class="text-slate-300">Intermediate</span></li>
-                            <li class="flex items-center"><span class="tag !bg-sky-600 !mb-0 mr-3">MATLAB</span> <span class="text-slate-300">Intermediate</span></li>
-                            <li class="flex items-center"><span class="tag !bg-sky-600 !mb-0 mr-3">Arduino</span> <span class="text-slate-300">Intermediate</span></li>
+                        <h3 class="text-sm font-semibold text-slate-200 mb-3 uppercase tracking-wide">Core Technical</h3>
+                        <ul class="space-y-1 text-slate-300 text-sm">
+                            <li>Python, C/C++</li>
+                            <li>MATLAB</li>
+                            <li>Arduino / Microcontrollers</li>
+                            <li>Embedded systems & control</li>
                         </ul>
                     </div>
-                    
-                    <!-- Software & Tools -->
+                    <!-- Robotics & Systems -->
                     <div class="bg-slate-800 p-6 rounded-lg">
-                        <h3 class="text-xl font-semibold text-white mb-4">Software & Tools</h3>
-                        <ul class="space-y-2 text-slate-300">
-                            <li>ROS & Gazebo</li>
-                            <li>SolidWorks</li>
-                            <li>Proteus / Multisim</li>
-                            <li>SuperDecisions</li>
-                            <li>Microsoft Office Suite</li>
+                        <h3 class="text-sm font-semibold text-slate-200 mb-3 uppercase tracking-wide">Robotics & Systems</h3>
+                        <ul class="space-y-1 text-slate-300 text-sm">
+                            <li>ROS & Gazebo simulations</li>
+                            <li>UAV systems & sensor integration</li>
+                            <li>Circuit design & testing</li>
+                            <li>SolidWorks, Proteus / Multisim</li>
                         </ul>
                     </div>
-
                     <!-- Data & AI -->
                     <div class="bg-slate-800 p-6 rounded-lg">
-                        <h3 class="text-xl font-semibold text-white mb-4">Data & AI</h3>
-                        <ul class="space-y-2 text-slate-300">
-                            <li>Machine Learning</li>
-                            <li>Data Science Applications</li>
-                            <li>Computer Vision</li>
-                            <li>Sensor Fusion</li>
+                        <h3 class="text-sm font-semibold text-slate-200 mb-3 uppercase tracking-wide">Data & AI</h3>
+                        <ul class="space-y-1 text-slate-300 text-sm">
+                            <li>Classical ML (SVM, etc.)</li>
+                            <li>Computer vision & CNN basics</li>
+                            <li>Signal & sensor data processing</li>
+                            <li>Firebase & simple cloud pipelines</li>
+                        </ul>
+                    </div>
+                    <!-- Communication & Leadership -->
+                    <div class="bg-slate-800 p-6 rounded-lg">
+                        <h3 class="text-sm font-semibold text-slate-200 mb-3 uppercase tracking-wide">Communication & Leadership</h3>
+                        <ul class="space-y-1 text-slate-300 text-sm">
+                            <li>Technical mentoring & lab assistance</li>
+                            <li>Public speaking & debate</li>
+                            <li>Event & team management</li>
+                            <li>Cross-functional collaboration</li>
                         </ul>
                     </div>
                 </div>
@@ -452,26 +512,41 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 class="section-title">Get In Touch</h2>
                 <p class="text-lg text-slate-300 max-w-2xl mx-auto">
-                    I'm actively seeking opportunities to apply my skills and contribute to innovative projects. Feel free to reach out!
+                    Open to collaborations, internships, research projects, and competitions related to robotics, AI, IoT, and engineering.
                 </p>
                 <div class="mt-8 flex flex-col sm:flex-row justify-center items-center gap-6">
                     <!-- Email -->
-                    <a href="mailto:gareth.harrison@binus.ac.id" class="flex items-center text-xl font-medium icon-link">
+                    <a href="mailto:gareth.harrison@binus.ac.id" class="flex items-center text-base md:text-lg font-medium icon-link">
                         <ion-icon name="mail-outline" class="w-6 h-6 mr-2"></ion-icon>
                         gareth.harrison@binus.ac.id
                     </a>
-                    
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/YOUR_HANDLE" target="_blank" class="flex items-center text-base md:text-lg font-medium icon-link">
+                        <ion-icon name="logo-linkedin" class="w-6 h-6 mr-2"></ion-icon>
+                        LinkedIn
+                    </a>
+                    <!-- GitHub -->
+                    <a href="https://github.com/YOUR_HANDLE" target="_blank" class="flex items-center text-base md:text-lg font-medium icon-link">
+                        <ion-icon name="logo-github" class="w-6 h-6 mr-2"></ion-icon>
+                        GitHub
+                    </a>
+                </div>
+                <div class="mt-4 flex flex-col sm:flex-row justify-center items-center gap-4 text-slate-400 text-sm">
                     <!-- Phone -->
-                    <div class="flex items-center text-xl font-medium text-slate-300">
-                        <ion-icon name="call-outline" class="w-6 h-6 mr-2"></ion-icon>
+                    <div class="flex items-center">
+                        <ion-icon name="call-outline" class="w-5 h-5 mr-2"></ion-icon>
                         (+62) 87877958808
                     </div>
-                    
                     <!-- Location -->
-                    <div class="flex items-center text-xl font-medium text-slate-300">
-                        <ion-icon name="location-outline" class="w-6 h-6 mr-2"></ion-icon>
+                    <div class="flex items-center">
+                        <ion-icon name="location-outline" class="w-5 h-5 mr-2"></ion-icon>
                         West Jakarta, Indonesia
                     </div>
+                    <!-- Resume -->
+                    <a href="assets/Gareth-Harrison-Resume.pdf" target="_blank" class="flex items-center icon-link">
+                        <ion-icon name="document-text-outline" class="w-5 h-5 mr-2"></ion-icon>
+                        Download Resume (PDF)
+                    </a>
                 </div>
             </div>
         </section>
@@ -487,6 +562,26 @@
     </footer>
 
     <script>
+        // Intersection Observer for subtle fade-in animations
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+        document.querySelectorAll('.card, section[id], .bg-slate-800.p-6.rounded-lg').forEach((el) => {
+            el.classList.add('fade-in-up');
+            observer.observe(el);
+        });
+
         // Mobile menu toggle
         const menuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
