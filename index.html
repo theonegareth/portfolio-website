@@ -35,9 +35,115 @@
         .icon-link {
             @apply text-slate-400 hover:text-blue-400 transition-colors;
         }
+        /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Dark mode styles */
+        .dark-mode {
+            background-color: #f8fafc; /* slate-50 */
+            color: #1e293b; /* slate-800 */
+        }
+        .dark-mode .card {
+            background-color: #e2e8f0; /* slate-200 */
+            color: #1e293b; /* slate-800 */
+        }
+        .dark-mode .section-title {
+            color: #1e293b; /* slate-800 */
+        }
+        .dark-mode .nav-link {
+            color: #475569; /* slate-600 */
+        }
+        .dark-mode .nav-link:hover {
+            background-color: #cbd5e1; /* slate-300 */
+            color: #1e293b; /* slate-800 */
+        }
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+        }
+        .modal-content {
+            background-color: #1e293b; /* slate-800 */
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 1rem;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            color: #e2e8f0; /* slate-200 */
+        }
+        .dark-mode .modal-content {
+            background-color: #f1f5f9; /* slate-100 */
+            color: #1e293b; /* slate-800 */
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: #fff;
+        }
+        /* Form styles */
+        .form-input {
+            @apply w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-slate-200 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+        }
+        .dark-mode .form-input {
+            @apply bg-slate-200 border-slate-300 text-slate-800 placeholder-slate-500;
+        }
+        /* Filter buttons */
+        .filter-btn {
+            @apply px-4 py-2 rounded-lg text-sm font-medium transition-colors;
+        }
+        .filter-btn.active {
+            @apply bg-blue-600 text-white;
+        }
+        .filter-btn:not(.active) {
+            @apply bg-slate-700 text-slate-300 hover:bg-slate-600;
+        }
+        .dark-mode .filter-btn:not(.active) {
+            @apply bg-slate-200 text-slate-700 hover:bg-slate-300;
+        }
+        /* Back to top button */
+        #back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: none;
+            z-index: 1000;
+        }
+        /* Scroll progress bar */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            z-index: 1001;
+        }
     </style>
 </head>
 <body class="antialiased">
+
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
 
     <!-- Header & Navigation -->
     <header class="bg-slate-900/80 backdrop-blur-md sticky top-0 z-50 w-full border-b border-slate-700">
@@ -55,6 +161,12 @@
                         <a href="#skills" class="nav-link">Skills</a>
                         <a href="#blog" class="nav-link">Blog</a>
                         <a href="#contact" class="nav-link">Contact</a>
+                        <!-- Dark Mode Toggle -->
+                        <button id="dark-mode-toggle" class="ml-4 p-2 rounded-md text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+                            </svg>
+                        </button>
                     </div>
                 </div>
                 <!-- Mobile Menu Button -->
@@ -662,6 +774,78 @@
                         behavior: "smooth"
                     });
                 }
+            });
+        });
+
+        // Scroll Progress Bar
+        const scrollProgress = document.getElementById('scroll-progress');
+        window.addEventListener('scroll', () => {
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (window.scrollY / windowHeight) * 100;
+            scrollProgress.style.width = scrolled + '%';
+        });
+
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const body = document.body;
+        const html = document.documentElement;
+
+        // Check for saved dark mode preference
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+            body.classList.add('dark-mode');
+            html.classList.add('dark-mode');
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            html.classList.toggle('dark-mode');
+            
+            // Save preference
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        // Back to Top Button
+        const backToTopButton = document.createElement('button');
+        backToTopButton.id = 'back-to-top';
+        backToTopButton.innerHTML = '↑';
+        backToTopButton.className = 'bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors';
+        document.body.appendChild(backToTopButton);
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         });
     </script>
