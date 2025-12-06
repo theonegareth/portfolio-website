@@ -286,13 +286,23 @@
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="py-24">
+        <section id="projects" class="py-24 fade-in">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="section-title">Portfolio Projects</h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project Filter Buttons -->
+                <div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="robotics">Robotics</button>
+                    <button class="filter-btn" data-filter="ml">Machine Learning</button>
+                    <button class="filter-btn" data-filter="iot">IoT</button>
+                    <button class="filter-btn" data-filter="automation">Automation</button>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
 
                     <!-- Project 1: HAYABUSA, KRTI 2025 -->
-                    <div class="card">
+                    <div class="card project-card" data-category="robotics ml" data-project="hayabusa">
                         <img class="h-48 w-full object-cover" src="https://placehold.co/600x400/334155/E2E8F0?text=HAYABUSA+Project" alt="HAYABUSA, KRTI 2025">
                         <div class="p-6">
                             <h3 class="text-xl font-bold text-white mb-2">HAYABUSA, KRTI 2025</h3>
